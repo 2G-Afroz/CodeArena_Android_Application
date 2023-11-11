@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ButtonCornerRadius" parent="Widget.Material3.Button">
+        <item name="cornerRadius">10dp</item>
+    </style>
+
+    <style name="ToolbarIconSize" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="iconSize">100dp</item>
+    </style>
+
+</resources>

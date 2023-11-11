@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Code Arena</string>
+
+    <string-array name="str_arr_languages_contents">
+        <!-- Python -->
+        <item>Basics, Data Types, Control Flow, Functions, Lists, Tuples, Dictionaries, File Handling, OOP, Exception Handling, RegEx, Generators, Decorators, Multithreading, Networking, Web Scraping, Pandas, ML, Flask, Django, Testing, Debugging, Best Practices, Design Patterns, Interview Questions.</item>
+        <!-- JavaScript -->
+        <item>Basics, Variables, Operators, Control Flow, Functions, Arrays, Objects, DOM, Events, Asynchronous, Closures, Prototypes, ES6+, Error Handling, AJAX, Frameworks (React, Angular, Vue), Node.js, Testing, Security, Debugging, Performance, Design Patterns, Webpack, PWAs, Interview Questions.</item>
+        <!-- HTML -->
+        <item>Basics, Structure, Semantic HTML, Forms, Media, Tables, Links, HTML5, Validation, A11y, Embedding, Metadata, Web Storage, RWD, Templating, HTML5 APIs, Email Templates, Security, Performance, Compatibility, Boilerplates, Templating Engines, Forms Frameworks.</item>
+        <!-- Go -->
+        <item>Basics, Data Types, Control Structures, Functions, Concurrency, Pointers, Structs, Error Handling, File I/O, Testing, Modules, Web Development, Database, Reflection, Context, RESTful APIs, Package Management, Debugging, Performance, Design Patterns, Advanced Topics.</item>
+        <!-- CSS -->
+        <item>">Basics, Selectors, Box Model, Flexbox, Grid, Transitions, RWD, Pseudo-Classes, Preprocessors, Frameworks, Grid Systems, Variables, Transforms, Positioning, Typography, Colors, Media Queries, Best Practices, Compatibility, Performance, Layout Frameworks, CSS-in-JS, Animations, Customization, Interview Questions.</item>
+        <!-- Ruby -->
+        <item>Basics, Variables, Control Flow, Loops, Methods, OOP, Inheritance, Exceptions, File I/O, Gems, RegEx, Metaprogramming, Concurrency, Ruby on Rails, Sinatra, Testing, Performance, Debugging, Design Patterns, Security, Front-End (ERB, Haml), Web Scraping, Database, Community, Interview Questions.</item>
+        <!-- PHP -->
+        <item>Basics, Variables, Control Structures, Functions, Arrays, OOP, File I/O, Forms, Sessions, Errors, Database, Frameworks, Security, Templating Engines, API Development, Front-End (PHP templates), CMS (WordPress), Debugging, Performance, Community, Version Management, Deployment, Framework Comparison, RESTful APIs, Interview Questions.</item>
+        <!-- Java -->
+        <item>Basics, Data Types, Control Flow, Loops, Methods, OOP, Inheritance, Exceptions, File I/O, Collections, Generics, Concurrency, Streams, Design Patterns, Database, Spring Framework, Testing, Performance, Debugging, Security, Front-End (JSP), Web Development, Community, Interview Questions.</item>
+    </string-array>
+
+    <integer-array name="int_arr_lang_logos_id">
+        <item>@drawable/logo_python</item>
+        <item>@drawable/logo_js</item>
+        <item>@drawable/logo_html</item>
+        <item>@drawable/logo_go</item>
+        <item>@drawable/logo_css</item>
+        <item>@drawable/logo_ruby</item>
+        <item>@drawable/logo_php</item>
+        <item>@drawable/logo_java</item>
+    </integer-array>
+</resources>
