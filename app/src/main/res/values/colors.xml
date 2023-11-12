@@ -15,5 +15,5 @@
 
     <color name="wrong_red">#FFB3B3</color>
     <color name="right_green">#A3E897</color>
-    <color name="selected">#00CCCC</color>
+    <color name="selected">#B9B9B9</color>
 </resources>

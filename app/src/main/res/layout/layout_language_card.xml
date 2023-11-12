@@ -18,7 +18,7 @@
             android:id="@+id/iv_img_lang"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo_go"
+            android:src="@drawable/logo_css"
             />
         <TextView
             android:id="@+id/tv_lang_content"

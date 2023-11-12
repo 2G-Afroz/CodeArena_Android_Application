@@ -43,6 +43,8 @@
         android:id="@+id/rv_languages"
         android:layout_below="@id/topAppBarLayout"
         android:paddingStart="10dp"
-        android:paddingEnd="10dp"/>
+        android:paddingEnd="10dp"
+        android:gravity="center"
+        />
 
 </RelativeLayout>

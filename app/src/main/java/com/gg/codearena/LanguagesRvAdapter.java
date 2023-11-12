@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,7 +23,7 @@ public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.
     public LanguagesRvAdapter(Context context, int[] logo_id, String[] lang_contents) {
         this.logo_id = logo_id;
         this.lang_contents = lang_contents;
-        this.context = context;
+        LanguagesRvAdapter.context = context;
     }
 
     @NonNull
