@@ -1,5 +1,6 @@
 package com.gg.codearena;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -8,21 +9,32 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
 import java.util.Map;
 
 public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.LanguageViewHolder> {
 
-    private final int[] logo_id;
-    private final String[] lang_contents;
+    private ArrayList<Languages> langData;
+    public static String[] lang_names;
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
-    public LanguagesRvAdapter(Context context, int[] logo_id, String[] lang_contents) {
-        this.logo_id = logo_id;
-        this.lang_contents = lang_contents;
+    public LanguagesRvAdapter(Context context, ArrayList<Languages> langData, String[] lang_names) {
+        this.langData = langData;
+        LanguagesRvAdapter.lang_names = lang_names;
         LanguagesRvAdapter.context = context;
     }
 
@@ -35,13 +47,13 @@ public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull LanguagesRvAdapter.LanguageViewHolder holder, int position) {
-        holder.iv_img_lang.setImageResource(logo_id[position]);
-        holder.tv_lang_content.setText(lang_contents[position]);
+        holder.iv_img_lang.setImageResource(langData.get(position).getImg_res_id());
+        holder.tv_lang_content.setText(langData.get(position).getTopics());
     }
 
     @Override
     public int getItemCount() {
-        return logo_id.length;
+        return langData.size();
     }
 
     public static class LanguageViewHolder extends RecyclerView.ViewHolder{
@@ -55,10 +67,10 @@ public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.
             iv_img_lang = itemView.findViewById(R.id.iv_img_lang);
             tv_lang_content = itemView.findViewById(R.id.tv_lang_content);
             cv_lang_card = itemView.findViewById(R.id.cv_language_card);
-
             // Adding Click event to the cardView
             cv_lang_card.setOnClickListener(v -> {
                 Intent intent = new Intent(context, QuizActivity.class);
+                intent.putExtra("lang", lang_names[getAdapterPosition()]);
                 context.startActivity(intent);
             });
         }

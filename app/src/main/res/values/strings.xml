@@ -1,26 +1,30 @@
 <resources>
     <string name="app_name">Code Arena</string>
+    <string name="_100_ncompletion"><b>100%</b>\nCompletion</string>
+    <string name="_7_nwrong"><b>7</b>\nWrong</string>
+    <string name="_13_ncorrect"><b>13</b>\nCorrect</string>
+    <string name="_20_ntotal_questions"><b>20</b>\nTotal Questions</string>
 
     <string-array name="str_arr_languages_contents">
         <!-- Python -->
-        <item>Basics, Data Types, Control Flow, Functions, Lists, Tuples, Dictionaries, File Handling, OOP, Exception Handling, RegEx, Generators, Decorators, Multithreading, Networking, Web Scraping, Pandas, ML, Flask, Django, Testing, Debugging, Best Practices, Design Patterns, Interview Questions.</item>
+        <item>Python Basics, Control Flow, Functions, Data Structures, File Handling, OOP, Python Standard Library, Error Handling, Decorators and Generators, Web Scraping.</item>
         <!-- JavaScript -->
-        <item>Basics, Variables, Operators, Control Flow, Functions, Arrays, Objects, DOM, Events, Asynchronous, Closures, Prototypes, ES6+, Error Handling, AJAX, Frameworks (React, Angular, Vue), Node.js, Testing, Security, Debugging, Performance, Design Patterns, Webpack, PWAs, Interview Questions.</item>
+        <item>JavaScript Basics, DOM Manipulation, Functions and Closures, Asynchronous JavaScript, Events and Event Handling, Objects and Prototypes, JSON in JavaScript, JavaScript ES6+, AJAX and Fetch API, Front-End Frameworks.</item>
         <!-- HTML -->
-        <item>Basics, Structure, Semantic HTML, Forms, Media, Tables, Links, HTML5, Validation, A11y, Embedding, Metadata, Web Storage, RWD, Templating, HTML5 APIs, Email Templates, Security, Performance, Compatibility, Boilerplates, Templating Engines, Forms Frameworks.</item>
+        <item>HTML Basics and Structure, HTML Forms, Semantics and Structure, Media Elements, Responsive Design, HTML5 Features, HTML Accessibility, SVG in HTML, Meta Tags and SEO, Web Accessibility Standards.</item>
         <!-- Go -->
-        <item>Basics, Data Types, Control Structures, Functions, Concurrency, Pointers, Structs, Error Handling, File I/O, Testing, Modules, Web Development, Database, Reflection, Context, RESTful APIs, Package Management, Debugging, Performance, Design Patterns, Advanced Topics.</item>
+        <item>Introduction to Go, Variables and Data Types, Control Flow, Functions and Packages, Concurrency in Go, Error Handling, Pointers in Go, Go Web Programming, Unit Testing in Go, Go Best Practices.</item>
         <!-- CSS -->
-        <item>">Basics, Selectors, Box Model, Flexbox, Grid, Transitions, RWD, Pseudo-Classes, Preprocessors, Frameworks, Grid Systems, Variables, Transforms, Positioning, Typography, Colors, Media Queries, Best Practices, Compatibility, Performance, Layout Frameworks, CSS-in-JS, Animations, Customization, Interview Questions.</item>
+        <item>CSS Basics and Selectors, Box Model and Layout, Flexbox and Grid, Responsive Design with Media Queries, Transitions and Animations, CSS Preprocessors, CSS Frameworks, Variables and Custom Properties, Browser Dev Tools, CSS Naming Conventions.</item>
         <!-- Ruby -->
-        <item>Basics, Variables, Control Flow, Loops, Methods, OOP, Inheritance, Exceptions, File I/O, Gems, RegEx, Metaprogramming, Concurrency, Ruby on Rails, Sinatra, Testing, Performance, Debugging, Design Patterns, Security, Front-End (ERB, Haml), Web Scraping, Database, Community, Interview Questions.</item>
+        <item>Ruby Basics and Syntax, OOP in Ruby, Ruby Classes and Modules, Blocks, Procs, and Lambdas, Ruby Gems, Ruby on Rails Basics, ActiveRecord in Rails, Testing in Ruby (RSpec), Concurrency in Ruby, Metaprogramming in Ruby.</item>
         <!-- PHP -->
-        <item>Basics, Variables, Control Structures, Functions, Arrays, OOP, File I/O, Forms, Sessions, Errors, Database, Frameworks, Security, Templating Engines, API Development, Front-End (PHP templates), CMS (WordPress), Debugging, Performance, Community, Version Management, Deployment, Framework Comparison, RESTful APIs, Interview Questions.</item>
+        <item>PHP Basics and Syntax, Variables and Data Types, Control Structures, Functions and Libraries, Forms and Input Handling, OOP in PHP, Database Connectivity (MySQL, SQLite), Security Best Practices, Sessions and Cookies, PHP Frameworks (e.g., Laravel).</item>
         <!-- Java -->
-        <item>Basics, Data Types, Control Flow, Loops, Methods, OOP, Inheritance, Exceptions, File I/O, Collections, Generics, Concurrency, Streams, Design Patterns, Database, Spring Framework, Testing, Performance, Debugging, Security, Front-End (JSP), Web Development, Community, Interview Questions.</item>
+        <item>Java Basics and Syntax, OOP in Java, Collections Framework, Exception Handling, File I/O, Multithreading, GUI Programming (Swing or JavaFX), Database Connectivity (JDBC), Spring Framework Basics, Unit Testing in Java (JUnit).</item>
     </string-array>
 
-    <integer-array name="int_arr_lang_logos_id">
+    <array name="lang_logos">
         <item>@drawable/logo_python</item>
         <item>@drawable/logo_js</item>
         <item>@drawable/logo_html</item>
@@ -29,5 +33,17 @@
         <item>@drawable/logo_ruby</item>
         <item>@drawable/logo_php</item>
         <item>@drawable/logo_java</item>
-    </integer-array>
+    </array>
+
+    <string-array name="lang_name">
+        <item>python</item>
+        <item>javascript</item>
+        <item>html</item>
+        <item>go</item>
+        <item>css</item>
+        <item>ruby</item>
+        <item>php</item>
+        <item>java</item>
+    </string-array>
+
 </resources>

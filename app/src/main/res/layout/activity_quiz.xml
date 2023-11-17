@@ -123,10 +123,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="1. What is the output of the following Python code?
-      \n\t\t\tmy_list = [1, 2, 3, 4, 5]
-      \n\t\t\tnew_list = [x * 2 for x in my_list if x % 2 == 0]
-      \n\t\t\tprint(new_list)"
             android:textSize="12sp" />
     </androidx.cardview.widget.CardView>
 
@@ -147,8 +143,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:padding="10dp"
-            android:text="A. Option 1"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -168,8 +163,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:padding="10dp"
-            android:text="B. Option 2"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -189,8 +183,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:padding="10dp"
-            android:text="C. Option 3"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -210,8 +203,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins_bold"
             android:padding="10dp"
-            android:text="D. Option 4"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </androidx.cardview.widget.CardView>
 
     <Button
