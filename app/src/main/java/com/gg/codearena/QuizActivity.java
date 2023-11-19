@@ -6,18 +6,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.gg.codearena.databinding.ActivityQuizBinding;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener{
 
     Toolbar toolbar;
+    LinearProgressIndicator lpi_progress_bar;
 
     // For View Binding
     public ActivityQuizBinding binding;
@@ -38,6 +43,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         // Initializing views
         toolbar = findViewById(R.id.toolbar);
+        lpi_progress_bar = findViewById(R.id.lpb_progress_bar);
         // Initializing variables
         index = 0;
 
@@ -57,11 +63,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         arrayQuestions = new ArrayList<>();
         String lang = getIntent().getStringExtra("lang");
 
-        // Setting topbar language
-        binding.tvQuizLang.setText(lang.toUpperCase());
-        myFirestoreHelper.getQuestions(lang, new MyFirestoreHelper.QuestionItemFetchListener() {
+        // Setting top-bar language
+        binding.tvQuizLang.setText(lang);
+
+        myFirestoreHelper.getQuestions(lang.toLowerCase(), new MyFirestoreHelper.QuestionItemFetchListener() {
             @Override
             public void onQuestionModelFetch(ArrayList<Question> questions) {
+                lpi_progress_bar.setVisibility(View.GONE);
                 arrayQuestions.addAll(questions);
                 if(arrayQuestions.size()>0)
                     setQuestion(arrayQuestions.get(0));

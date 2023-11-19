@@ -5,6 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".QuizActivity">
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lpb_progress_bar"
+        android:layout_below="@id/topAppBarLayout"
+        app:indicatorColor="@color/primary_dark"
+        android:indeterminate="true"
+        />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/topAppBarLayout"

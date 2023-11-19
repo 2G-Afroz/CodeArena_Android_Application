@@ -36,14 +36,14 @@
     </array>
 
     <string-array name="lang_name">
-        <item>python</item>
-        <item>javascript</item>
-        <item>html</item>
-        <item>go</item>
-        <item>css</item>
-        <item>ruby</item>
-        <item>php</item>
-        <item>java</item>
+        <item>Python</item>
+        <item>JavaScript</item>
+        <item>HTML</item>
+        <item>Go</item>
+        <item>CSS</item>
+        <item>Ruby</item>
+        <item>PHP</item>
+        <item>Java</item>
     </string-array>
 
 </resources>

@@ -28,13 +28,11 @@ import java.util.Map;
 
 public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.LanguageViewHolder> {
 
-    private ArrayList<Languages> langData;
-    public static String[] lang_names;
+    private static ArrayList<Languages> langData;
     @SuppressLint("StaticFieldLeak")
     private static Context context;
-    public LanguagesRvAdapter(Context context, ArrayList<Languages> langData, String[] lang_names) {
+    public LanguagesRvAdapter(Context context, ArrayList<Languages> langData) {
         this.langData = langData;
-        LanguagesRvAdapter.lang_names = lang_names;
         LanguagesRvAdapter.context = context;
     }
 
@@ -48,6 +46,7 @@ public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.
     @Override
     public void onBindViewHolder(@NonNull LanguagesRvAdapter.LanguageViewHolder holder, int position) {
         holder.iv_img_lang.setImageResource(langData.get(position).getImg_res_id());
+        holder.tv_lang_title.setText(langData.get(position).getLang_title());
         holder.tv_lang_content.setText(langData.get(position).getTopics());
     }
 
@@ -59,18 +58,21 @@ public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.
     public static class LanguageViewHolder extends RecyclerView.ViewHolder{
 
         ImageView iv_img_lang;
+        TextView tv_lang_title;
         TextView tv_lang_content;
         CardView cv_lang_card;
 
         public LanguageViewHolder(@NonNull View itemView){
             super(itemView);
             iv_img_lang = itemView.findViewById(R.id.iv_img_lang);
+            tv_lang_title = itemView.findViewById(R.id.tv_lang_title);
             tv_lang_content = itemView.findViewById(R.id.tv_lang_content);
             cv_lang_card = itemView.findViewById(R.id.cv_language_card);
+
             // Adding Click event to the cardView
             cv_lang_card.setOnClickListener(v -> {
                 Intent intent = new Intent(context, QuizActivity.class);
-                intent.putExtra("lang", lang_names[getAdapterPosition()]);
+                intent.putExtra("lang", langData.get(getAdapterPosition()).getLang_title());
                 context.startActivity(intent);
             });
         }

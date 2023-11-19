@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.progressindicator.LinearProgressIndicator;
+
 public class ResultActivity extends AppCompatActivity {
 
     Button btn_home, btn_replay;
@@ -34,7 +36,7 @@ public class ResultActivity extends AppCompatActivity {
         if(total == 0)
             completion = 0;
         else
-            completion = (score/total)*100;
+            completion = (score*100)/total;
         tv_score.setText("Yout Score\n"+getIntent().getIntExtra("score", 0)+" pt");
         tv_completion.setText(completion+"%\nCompletion");
         tv_total_qn.setText(total+"\nTotal Questions");

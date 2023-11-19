@@ -34,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
     // For data
     private ArrayList<Languages> langData;
-
     // For Database
     private FirebaseFirestore db;
 
@@ -62,16 +61,17 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-        LanguagesRvAdapter languagesRvAdapter = new LanguagesRvAdapter(this, langData, getResources().getStringArray(R.array.lang_name));
+        LanguagesRvAdapter languagesRvAdapter = new LanguagesRvAdapter(this, langData);
         rv_languages.setLayoutManager(new LinearLayoutManager(this));
         rv_languages.setAdapter(languagesRvAdapter);
     }
 
     void initializeData(){
-        String[] lang_topic_list = getResources().getStringArray(R.array.str_arr_languages_contents);
         TypedArray img_res = getResources().obtainTypedArray(R.array.lang_logos);
+        String[] lang_names = getResources().getStringArray(R.array.lang_name);
+        String[] lang_topic_list = getResources().getStringArray(R.array.str_arr_languages_contents);
         for(int i=0;i<lang_topic_list.length;i++){
-            langData.add(new Languages(img_res.getResourceId(i, 0), lang_topic_list[i]));
+            langData.add(new Languages(img_res.getResourceId(i, 0), lang_names[i],lang_topic_list[i]));
         }
     }
 }
