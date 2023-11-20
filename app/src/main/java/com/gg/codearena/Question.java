@@ -1,7 +1,5 @@
 package com.gg.codearena;
 
-import com.google.firebase.Firebase;
-
 import java.util.List;
 
 public class Question {

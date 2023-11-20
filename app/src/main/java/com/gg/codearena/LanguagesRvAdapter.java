@@ -7,24 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-
 import java.util.ArrayList;
-import java.util.Map;
 
 public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.LanguageViewHolder> {
 
@@ -32,7 +19,7 @@ public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.
     @SuppressLint("StaticFieldLeak")
     private static Context context;
     public LanguagesRvAdapter(Context context, ArrayList<Languages> langData) {
-        this.langData = langData;
+        LanguagesRvAdapter.langData = langData;
         LanguagesRvAdapter.context = context;
     }
 

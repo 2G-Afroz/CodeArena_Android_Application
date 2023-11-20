@@ -1,6 +1,10 @@
+**Legends:**
+✅ Added questions in this file
+✅✅ Added questions in the database
+---------------------------------------------
 # Languages
 1. [Python](#python)
-    - [Python Basics](#python-basics) ✅
+    - [Python Basics](#python-basics) ✅✅
     - [Control Flow](#control-flow) ✅
     - [Functions](#functions) ✅
     - [Data Structures](#data-structures) 
@@ -12,7 +16,7 @@
     - [Web Scraping](#web-scraping)
 
 2. [JavaScript](#javascript)
-    - [JavaScript Basics](#javascript-basics) ✅
+    - [JavaScript Basics](#javascript-basics) ✅✅
     - [DOM Manipulation](#dom-manipulation)
     - [Functions and Closures](#functions-and-closures)
     - [Asynchronous JavaScript](#asynchronous-javascript)
@@ -24,7 +28,7 @@
     - [Front-End Frameworks](#front-end-frameworks)
 
 3. [HTML](#html)
-    - [HTML Basics and Structure](#html-basics-and-structure) ✅
+    - [HTML Basics and Structure](#html-basics-and-structure) ✅✅
     - [HTML Forms](#html-forms)
     - [Semantics and Structure](#semantics-and-structure)
     - [Media Elements](#media-elements)
@@ -36,7 +40,7 @@
     - [Web Accessibility Standards](#web-accessibility-standards)
 
 4. [Go](#go)
-    - [Introduction to Go](#introduction-to-go) ✅
+    - [Introduction to Go](#introduction-to-go) ✅✅
     - [Variables and Data Types](#variables-and-data-types)
     - [Control Flow](#control-flow)
     - [Functions and Packages](#functions-and-packages)
@@ -47,7 +51,7 @@
     - [Unit Testing in Go](#unit-testing-in-go)
     - [Go Best Practices](#go-best-practices)
 5. [CSS](#css)
-    - [CSS Basics and Selectors](#css-basics-and-selectors) ✅
+    - [CSS Basics and Selectors](#css-basics-and-selectors) ✅✅
     - [Box Model and Layout](#box-model-and-layout)
     - [Flexbox and Grid](#flexbox-and-grid)
     - [Responsive Design with Media Queries](#responsive-design-with-media-queries)
@@ -59,7 +63,7 @@
     - [CSS Naming Conventions](#css-naming-conventions)
 
 6. [Ruby](#ruby)
-    - [Ruby Basics and Syntax](#ruby-basics-and-syntax) ✅
+    - [Ruby Basics and Syntax](#ruby-basics-and-syntax) ✅✅
     - [OOP in Ruby](#oop-in-ruby)
     - [Ruby Classes and Modules](#ruby-classes-and-modules)
     - [Blocks, Procs, and Lambdas](#blocks-procs-and-lambdas)
@@ -455,7 +459,7 @@ String[] questions = {
 "Which of the following is the correct syntax to make the background-color of all paragraph elements to yellow ?",
 "Which property is used as the shorthand property of the padding properties ",
 "The CSS property used to make the text bold is-",
-" Which property is used to allign the text in a table?",
+"Which property is used to allign the text in a table?",
 "Which selector select any tag with an id attribute set?",
 "Which selector select siblings?"
 };

@@ -6,20 +6,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
-
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.HandlerThread;
 import android.os.Looper;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.gg.codearena.databinding.ActivityQuizBinding;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
-
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
@@ -162,14 +157,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:
-                // (Home/<-) pressed
-                finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.R.id.home) {// (Home/<-) pressed
+            finish();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -181,19 +173,19 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         if (binding.cvQuizOption1.getId() == v.getId()) {
             changeOptionColor(binding.cvQuizOption1);
-            userAnsIndex[index] = 0l;
+            userAnsIndex[index] = 0L;
         } else {
             if (binding.cvQuizOption2.getId() == v.getId()) {
                 changeOptionColor(binding.cvQuizOption2);
-                userAnsIndex[index] = 1l;
+                userAnsIndex[index] = 1L;
             } else {
                 if (binding.cvQuizOption3.getId() == v.getId()) {
                     changeOptionColor(binding.cvQuizOption3);
-                    userAnsIndex[index] = 2l;
+                    userAnsIndex[index] = 2L;
                 } else {
                     if (binding.cvQuizOption4.getId() == v.getId()) {
                         changeOptionColor(binding.cvQuizOption4);
-                        userAnsIndex[index] = 3l;
+                        userAnsIndex[index] = 3L;
                     }
                 }
             }

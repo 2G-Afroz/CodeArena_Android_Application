@@ -1,11 +1,9 @@
 package com.gg.codearena;
 
-import java.util.Map;
-
 public class Languages {
     private final int img_res_id;
-    private String topics;
-    private String lang_title;
+    private final String topics;
+    private final String lang_title;
 
     public Languages(int img_res_id, String lang_title, String topics){
         this.img_res_id = img_res_id;
