@@ -1,5 +1,5 @@
-**Legends:**
-✅ Added questions in this file
+**Legends:**  
+✅ Added questions in this file  
 ✅✅ Added questions in the database
 ---------------------------------------------
 # Languages
@@ -75,7 +75,7 @@
     - [Metaprogramming in Ruby](#metaprogramming-in-ruby)
 
 7. [PHP](#php)
-    - [PHP Basics and Syntax](#php-basics-and-syntax) ✅
+    - [PHP Basics and Syntax](#php-basics-and-syntax) ✅✅
     - [Variables and Data Types](#variables-and-data-types)
     - [Control Structures](#control-structures)
     - [Functions and Libraries](#functions-and-libraries)
@@ -87,7 +87,7 @@
     - [PHP Frameworks (e.g., Laravel)](#php-frameworks--eg-laravel-)
 
 8. [Java](#java)
-    - [Java Basics and Syntax](#java-basics-and-syntax) ✅
+    - [Java Basics and Syntax](#java-basics-and-syntax) ✅✅
     - [OOP in Java](#oop-in-java)
     - [Collections Framework](#collections-framework)
     - [Exception Handling](#exception-handling)
