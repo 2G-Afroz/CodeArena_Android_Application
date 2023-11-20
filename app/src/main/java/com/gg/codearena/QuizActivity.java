@@ -10,13 +10,18 @@ import androidx.core.content.ContextCompat;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 import com.gg.codearena.databinding.ActivityQuizBinding;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Objects;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener{
@@ -32,6 +37,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     ArrayList<Question> arrayQuestions;
     int index;
     Long[] userAnsIndex;
+    // For updating time
+    Handler handler;
+    private static int elapsedTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +71,29 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         arrayQuestions = new ArrayList<>();
         String lang = getIntent().getStringExtra("lang");
 
+        // New Thread for setting time
+        handler = new Handler(Looper.getMainLooper());
+
         // Setting top-bar language
         binding.tvQuizLang.setText(lang);
 
         myFirestoreHelper.getQuestions(lang.toLowerCase(), new MyFirestoreHelper.QuestionItemFetchListener() {
             @Override
             public void onQuestionModelFetch(ArrayList<Question> questions) {
+                // For time
+                elapsedTime = 0;
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateTime();
+                        handler.postDelayed(this, 1000);
+                    }
+                },1000);
+
+                // For progressBar
                 lpi_progress_bar.setVisibility(View.GONE);
+
+                // For questions
                 arrayQuestions.addAll(questions);
                 if(arrayQuestions.size()>0)
                     setQuestion(arrayQuestions.get(0));
@@ -131,13 +155,16 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                     }))
                     .create().show();
         });
+
+
+
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                // Home/<- pressed
+                // (Home/<-) pressed
                 finish();
                 return true;
             default:
@@ -192,6 +219,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         binding.cvQuizOption4.setCardBackgroundColor(ContextCompat.getColor(this, android.R.color.background_light));
     }
 
+    /**
+     * This function is used to set the color of previously selected option by the user
+     * @param index is the index of option.
+     */
     void setOptionColor(int index){
         switch (index){
             case 0:
@@ -213,6 +244,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         binding.tvQuizQNum.setText(index+"/"+totalQn);
     }
 
+    /**
+     * This function is used to set the question and their options in their respective fields.
+     * @param qn is the current Question.
+     */
     void setQuestion(Question qn){
         binding.tvQuizQn.setText(qn.getQuestion());
         binding.tvQuizOption1.setText(qn.getOptions().get(0));
@@ -221,6 +256,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         binding.tvQuizOption4.setText(qn.getOptions().get(3));
     }
 
+    /**
+     * THis function is used to get the result of the quiz according to the selected options of the questions.
+     * @return the final result as score.
+     */
     int getResult(){
         int score = 0;
         if(arrayQuestions.size()>0){
@@ -231,5 +270,16 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         return score;
+    }
+
+    /**
+     * This function is used to set the time in time field.
+     */
+    private void updateTime(){
+        elapsedTime++;
+        int min = elapsedTime/60;
+        int sec = elapsedTime%60;
+        String formattedTime = String.format(Locale.US, "%02d:%02d", min, sec);
+        binding.tvQuizTime.setText(formattedTime);
     }
 }
