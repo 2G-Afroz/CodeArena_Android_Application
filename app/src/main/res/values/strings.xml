@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">Code Arena</string>
-    <string name="_100_ncompletion"><b>100%</b>\nCompletion</string>
-    <string name="_7_nwrong"><b>7</b>\nWrong</string>
-    <string name="_13_ncorrect"><b>13</b>\nCorrect</string>
-    <string name="_20_ntotal_questions"><b>20</b>\nTotal Questions</string>
+
+    <!-- For Quiz Layout -->
+    <string name="question">This is the question which will be shown in question section. Making it a little large.</string>
+    <string name="option1">This is option 1</string>
+    <string name="option2">This is option 2</string>
+    <string name="option3">This is option 3</string>
+    <string name="option4">This is option 4</string>
+    <string name="submit">SUBMIT</string>
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
+
 
     <string-array name="str_arr_languages_contents">
         <!-- Python -->
