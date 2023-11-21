@@ -6,20 +6,27 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.text.style.QuoteSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
 import com.gg.codearena.databinding.ActivityQuizBinding;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Objects;
 
-public class QuizActivity extends AppCompatActivity implements View.OnClickListener{
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Random;
+
+public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
     Toolbar toolbar;
     LinearProgressIndicator lpi_progress_bar;
@@ -83,14 +90,15 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                         updateTime();
                         handler.postDelayed(this, 1000);
                     }
-                },1000);
+                }, 1000);
 
                 // For progressBar
                 lpi_progress_bar.setVisibility(View.GONE);
 
                 // For questions
-                arrayQuestions.addAll(questions);
-                if(arrayQuestions.size()>0)
+                // Getting 20 random questions.
+                arrayQuestions.addAll(getNRandomQuestions(questions, 20));
+                if (arrayQuestions.size() > 0)
                     setQuestion(arrayQuestions.get(0));
                 userAnsIndex = new Long[arrayQuestions.size()];
 
@@ -107,51 +115,50 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         // Setting next/prev click events
         binding.btnPrev.setOnClickListener(v -> {
-            if (index>0){
+            if (index > 0) {
                 index--;
                 setQuestion(arrayQuestions.get(index));
                 // Setting Selected option color
                 clearOptionColor();
-                if(userAnsIndex[index] != null){
+                if (userAnsIndex[index] != null) {
                     setOptionColor(userAnsIndex[index].intValue());
                 }
-                setQnNum(index+1, userAnsIndex.length);
+                setQnNum(index + 1, userAnsIndex.length);
             }
         });
 
         binding.btnNext.setOnClickListener(v -> {
-            if (index<arrayQuestions.size()-1){
+            if (index < arrayQuestions.size() - 1) {
                 index++;
                 setQuestion(arrayQuestions.get(index));
                 // Setting Selected option color
                 clearOptionColor();
-                if(userAnsIndex[index] != null){
+                if (userAnsIndex[index] != null) {
                     setOptionColor(userAnsIndex[index].intValue());
                 }
-                setQnNum(index+1, userAnsIndex.length);
+                setQnNum(index + 1, userAnsIndex.length);
             }
         });
 
         // Submitting the test
         binding.btnSubmit.setOnClickListener(v -> {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Submit test?")
-                    .setPositiveButton("SUBMIT", (dialog, which) -> {
-                        Intent intent = new Intent(this, ResultActivity.class);
-                        // Putting data for result
-                        intent.putExtra("score", getResult());
-                        intent.putExtra("total", userAnsIndex.length);
-                        intent.putExtra("lang", lang);
-                        startActivity(intent);
-                        finish();
-                    })
-                    .setNegativeButton("CANCEL", ((dialog, which) -> {
-                        dialog.dismiss();
-                    }))
-                    .create().show();
+            if (userAnsIndex != null) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Submit test?")
+                        .setPositiveButton("SUBMIT", (dialog, which) -> {
+                            Intent intent = new Intent(this, ResultActivity.class);
+                            // Putting data for result
+                            intent.putExtra("score", getResult().get("score"));
+                            intent.putExtra("notAns", getResult().get("not_ans"));
+                            intent.putExtra("total", userAnsIndex.length);
+                            intent.putExtra("lang", lang);
+                            startActivity(intent);
+                            finish();
+                        })
+                        .setNegativeButton("CANCEL", ((dialog, which) -> dialog.dismiss()))
+                        .create().show();
+            }
         });
-
-
 
     }
 
@@ -167,25 +174,28 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * This is an on click function
      * It get called when the option card view get clicked.
+     *
      * @param v The view that was clicked.
      */
     @Override
     public void onClick(View v) {
-        if (binding.cvQuizOption1.getId() == v.getId()) {
-            changeOptionColor(binding.cvQuizOption1);
-            userAnsIndex[index] = 0L;
-        } else {
-            if (binding.cvQuizOption2.getId() == v.getId()) {
-                changeOptionColor(binding.cvQuizOption2);
-                userAnsIndex[index] = 1L;
+        if (userAnsIndex != null) {
+            if (binding.cvQuizOption1.getId() == v.getId()) {
+                changeOptionColor(binding.cvQuizOption1);
+                userAnsIndex[index] = 0L;
             } else {
-                if (binding.cvQuizOption3.getId() == v.getId()) {
-                    changeOptionColor(binding.cvQuizOption3);
-                    userAnsIndex[index] = 2L;
+                if (binding.cvQuizOption2.getId() == v.getId()) {
+                    changeOptionColor(binding.cvQuizOption2);
+                    userAnsIndex[index] = 1L;
                 } else {
-                    if (binding.cvQuizOption4.getId() == v.getId()) {
-                        changeOptionColor(binding.cvQuizOption4);
-                        userAnsIndex[index] = 3L;
+                    if (binding.cvQuizOption3.getId() == v.getId()) {
+                        changeOptionColor(binding.cvQuizOption3);
+                        userAnsIndex[index] = 2L;
+                    } else {
+                        if (binding.cvQuizOption4.getId() == v.getId()) {
+                            changeOptionColor(binding.cvQuizOption4);
+                            userAnsIndex[index] = 3L;
+                        }
                     }
                 }
             }
@@ -194,9 +204,10 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     /**
      * This function is used to set the color of recently selected/clicked card view/option.
+     *
      * @param cv is the clicked card view.
      */
-    void changeOptionColor(CardView cv){
+    void changeOptionColor(CardView cv) {
         clearOptionColor();
         cv.setCardBackgroundColor(ContextCompat.getColor(this, R.color.selected));
     }
@@ -204,7 +215,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     /**
      * This function is used to clear the color of options card background.
      */
-    void clearOptionColor(){
+    void clearOptionColor() {
         binding.cvQuizOption1.setCardBackgroundColor(ContextCompat.getColor(this, android.R.color.background_light));
         binding.cvQuizOption2.setCardBackgroundColor(ContextCompat.getColor(this, android.R.color.background_light));
         binding.cvQuizOption3.setCardBackgroundColor(ContextCompat.getColor(this, android.R.color.background_light));
@@ -213,10 +224,11 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     /**
      * This function is used to set the color of previously selected option by the user
+     *
      * @param index is the index of option.
      */
-    void setOptionColor(int index){
-        switch (index){
+    void setOptionColor(int index) {
+        switch (index) {
             case 0:
                 binding.cvQuizOption1.setCardBackgroundColor(ContextCompat.getColor(this, R.color.selected));
                 break;
@@ -232,15 +244,17 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
         }
     }
-    void setQnNum(int index, int totalQn){
-        binding.tvQuizQNum.setText(index+"/"+totalQn);
+
+    void setQnNum(int index, int totalQn) {
+        binding.tvQuizQNum.setText(index + "/" + totalQn);
     }
 
     /**
      * This function is used to set the question and their options in their respective fields.
+     *
      * @param qn is the current Question.
      */
-    void setQuestion(Question qn){
+    void setQuestion(Question qn) {
         binding.tvQuizQn.setText(qn.getQuestion());
         binding.tvQuizOption1.setText(qn.getOptions().get(0));
         binding.tvQuizOption2.setText(qn.getOptions().get(1));
@@ -250,28 +264,58 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     /**
      * THis function is used to get the result of the quiz according to the selected options of the questions.
+     *
      * @return the final result as score.
      */
-    int getResult(){
+    Map<String, Integer> getResult() {
         int score = 0;
-        if(arrayQuestions.size()>0){
-            for(int i=0;i<userAnsIndex.length;i++){
-                if(Objects.equals(userAnsIndex[i], arrayQuestions.get(i).getAnswer_index())) {
+        int not_ans = 0;
+        if (arrayQuestions.size() > 0) {
+            for (int i = 0; i < userAnsIndex.length; i++) {
+                if (Objects.equals(userAnsIndex[i], arrayQuestions.get(i).getAnswer_index())) {
                     score++;
+                }
+                if (Objects.equals(userAnsIndex[i], null)) {
+                    not_ans++;
                 }
             }
         }
-        return score;
+        Map<String, Integer> map = new HashMap<>();
+        map.put("score", score);
+        map.put("not_ans", not_ans);
+        return map;
     }
 
     /**
      * This function is used to set the time in time field.
      */
-    private void updateTime(){
+    private void updateTime() {
         elapsedTime++;
-        int min = elapsedTime/60;
-        int sec = elapsedTime%60;
+        int min = elapsedTime / 60;
+        int sec = elapsedTime % 60;
         String formattedTime = String.format(Locale.US, "%02d:%02d", min, sec);
         binding.tvQuizTime.setText(formattedTime);
+    }
+
+    /**
+     * This Function is used to get random question from all the questions.
+     * @param questions is the total questions got from database.
+     * @param count is the count of questions we want.
+     * @return ArrayList of random question of size "count".
+     */
+    private ArrayList<Question> getNRandomQuestions(ArrayList<Question> questions, int count){
+        ArrayList<Question> randQns = new ArrayList<>();
+
+        // If there are fewer documents than requested count, return all documents
+        int actualCount = Math.min(count, questions.size());
+
+        Random random = new Random();
+        for(int i=0;i<actualCount;i++){
+            int randIndex = random.nextInt(questions.size());
+            randQns.add(questions.get(randIndex));
+            questions.remove(randIndex);
+        }
+
+        return randQns;
     }
 }

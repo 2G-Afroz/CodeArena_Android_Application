@@ -5,8 +5,8 @@
 # Languages
 1. [Python](#python)
     - [Python Basics](#python-basics) ✅✅
-    - [Control Flow](#control-flow) ✅
-    - [Functions](#functions) ✅
+    - [Control Flow](#control-flow) ✅✅
+    - [Functions](#functions) ✅✅
     - [Data Structures](#data-structures) 
     - [File Handling](#file-handling)
     - [Object-Oriented Programming (OOP)](#object-oriented-programming--oop-)
@@ -17,7 +17,7 @@
 
 2. [JavaScript](#javascript)
     - [JavaScript Basics](#javascript-basics) ✅✅
-    - [DOM Manipulation](#dom-manipulation)
+    - [DOM Manipulation](#dom-manipulation) ✅✅
     - [Functions and Closures](#functions-and-closures)
     - [Asynchronous JavaScript](#asynchronous-javascript)
     - [Events and Event Handling](#events-and-event-handling)
@@ -29,8 +29,8 @@
 
 3. [HTML](#html)
     - [HTML Basics and Structure](#html-basics-and-structure) ✅✅
-    - [HTML Forms](#html-forms)
-    - [Semantics and Structure](#semantics-and-structure)
+    - [HTML Forms](#html-forms) ✅✅
+    - [Semantics and Structure](#semantics-and-structure) ✅✅
     - [Media Elements](#media-elements)
     - [Responsive Design](#responsive-design)
     - [HTML5 Features](#html5-features)
@@ -52,7 +52,7 @@
     - [Go Best Practices](#go-best-practices)
 5. [CSS](#css)
     - [CSS Basics and Selectors](#css-basics-and-selectors) ✅✅
-    - [Box Model and Layout](#box-model-and-layout)
+    - [Box Model and Layout](#box-model-and-layout) ✅✅
     - [Flexbox and Grid](#flexbox-and-grid)
     - [Responsive Design with Media Queries](#responsive-design-with-media-queries)
     - [Transitions and Animations](#transitions-and-animations)
@@ -256,6 +256,7 @@ Long[] answer = {0, 0, 3, 2, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1};
 ### Error Handling
 ### Decorators and Generators
 ### Web Scraping
+
 ## JavaScript
 ### JavaScript Basics
 ```
@@ -308,6 +309,55 @@ String[][] options = {
 Long[] answer = {2, 0, 0, 1, 0, 2, 0, 0, 3, 0, 1, 1, 0, 0, 0, 2, 2, 3, 2, 1, 2};
 ```
 ### DOM Manipulation
+```
+String[] questions = {
+    "Which method is used to access an element by its ID in the DOM?",
+    "How can you change the text content of an HTML element with id \"example\"?",
+    "What does the DOM stand for?",
+    "Which method is used to create a new HTML element in the DOM?",
+    "How can you add a class \"highlight\" to an element with id \"targetElement\"?",
+    "What is the purpose of the innerHTML property?",
+    "Which method is used to remove an HTML element from the DOM?",
+    "How can you check if an element has a specific class \"myClass\"?",
+    "What does the setAttribute method do?",
+    "How can you attach a click event to an HTML button with the id \"myButton\" using JavaScript?",
+    "What is the purpose of the querySelector method?",
+    "How can you change the value of an input element with id \"myInput\" using JavaScript?",
+    "What is the purpose of the appendChild method?",
+    "How can you check if an element with id \"myElement\" exists in the DOM?",
+    "What does the parentNode property represent in the DOM?",
+    "How can you prevent the default behavior of a click event?",
+    "What is the purpose of the classList property?",
+    "How can you select all elements with the class \"myClass\"?",
+    "What is the purpose of the setAttribute method?",
+    "How can you check if an element with id \"myElement\" has a specific attribute \"data-toggle\"?"
+};
+
+String[][] options = {
+    {"getElementById", "selectElementById", "getIDElement", "queryElementById"},
+    {"document.getElement(\"example\").textContent = \"New Text\";", "document.querySelector(\"#example\").innerHTML = \"New Text\";", "document.getElementById(\"example\").innerText = \"New Text\";", "document.getElementById(\"example\").text = \"New Text\";"},
+{"Document Object Model", "Data Object Model", "Document Oriented Model", "Document Operation Model"},
+    {"createElement", "newElement", "addElement", "makeElement"},
+    {"document.getElementById(\"targetElem    ent\").class = \"highlight\";", "document.querySelector(\"#targetElement\").addClass(\"highlight\");", "document.getElementById(\"targetElement\").classList.add(\"highlight\");", "document.querySelector(\"#targetElement\").class = \"highlight\";"},
+    {"It gets the text content of an element.", "It sets the text content of an element.", "It gets or sets the HTML content within an element.", "It creates a new HTML element."},
+    {"deleteElement", "removeElement", "document.remove(\"elementId\");", "parentNode.removeChild(element);"},
+    {"document.querySelector(\".myClass\").hasClass(\"myClass\");", "document.querySelector(\".myClass\").containsClass(\"myClass\");", "document.querySelector(\".myClass\").hasClass(\"myClass\");", "document.querySelector(\".myClass\").isClass(\"myClass\");"},
+    {"Adds a new attribute to an HTML element.", "Removes an attribute from an HTML element.", "Modifies the value of an existing attribute.", "Retrieves the value of an attribute."},
+    {"document.getElementById(\"myButton\").addEventListener(\"click\", myFunction);", "document.querySelector(\"#myButton\").click(myFunction);", "document.button(\"myButton\").onClick = myFunction;", "document.getElementById(\"myButton\").on(\"click\", myFunction);"},
+    {"It selects the first element that matches a specified CSS selector.", "It selects all elements that match a specified CSS selector.", "It selects elements based on their tag name.", "It selects elements based on their index."},
+    {"document.getElementById(\"myInput\").value = \"New Value\";", "document.querySelector(\"#myInput\").setValue(\"New Value\");", "document.input(\"myInput\").value = \"New Value\";", "document.getElementById(\"myInput\").text = \"New Value\";"},
+    {"It removes an element from the DOM.", "It appends a new child element to an existing element.", "It replaces an existing element with a new element.", "It retrieves the children of an element."},
+    {"document.exists(\"myElement\");", "document.querySelector(\"#myElement\").exists();", "document.getElementById(\"myElement\") !== null;", "document.querySelector(\"#myElement\") == true;"},
+    {"It represents the parent element of the current element.", "It represents the first child element of the current element.", "It represents the next sibling element of the current element.", "It represents the previous sibling element of the current element."},
+    {"event.preventDefault();", "preventDefaultEvent();", "stopPropagation();", "stopDefault();"},
+    {"It represents the list of all HTML elements.", "It represents the list of classes associated with an HTML element.", "It represents the list of child elements of an HTML element.", "It represents the list of attributes of an HTML element."},
+    {"document.select(\".myClass\");", "document.querySelectorAll(\".myClass\");", "document.getElements(\".myClass\");", "document.getElementById(\"myClass\");"},
+    {"Adds a new attribute to an HTML element.", "Removes an attribute from an HTML element.", "Modifies the value of an existing attribute.", "Retrieves the value of an attribute."},
+    {"document.getElementById(\"myElement\").hasAttribute(\"data-toggle\");", "document.querySelector(\"#myElement\").attribute(\"data-toggle\").exists();", "document.getElementById(\"myElement\").attribute(\"data-toggle\").isSet();", "document.querySelector(\"#myElement\").hasAttribute(\"data-toggle\");"}
+};
+
+Long[] answer = {0L, 2L, 0L, 0L, 2L, 2L, 3L, 2L, 0L, 0L, 0L, 0L, 1L, 2L, 0L, 0L, 1L, 1L, 0L, 0L};
+```
 ### Functions and Closures
 ### Asynchronous JavaScript
 ### Events and Event Handling
@@ -316,6 +366,7 @@ Long[] answer = {2, 0, 0, 1, 0, 2, 0, 0, 3, 0, 1, 1, 0, 0, 0, 2, 2, 3, 2, 1, 2};
 ### JavaScript ES6+
 ### AJAX and Fetch API
 ### Front-End Frameworks
+
 ## HTML
 ### HTML Basics and Structure
 ```
@@ -368,7 +419,105 @@ String[][] options = {
 Long[] answer = {0, 2, 0, 2, 0, 0, 2, 0, 0, 0, 0, 2, 1, 0, 0, 1, 0, 0, 3, 0, 2};
 ```
 ### HTML Forms
+```
+String[] questions = {
+    "What HTML element is used to create a form?",
+    "Which attribute is used to specify the HTTP method in a form?",
+    "What type of input is used for a single-line text entry in a form?",
+    "How can you create a drop-down list in HTML?",
+    "Which input type is used for checkboxes?",
+    "What is the purpose of the <label> element in HTML forms?",
+    "Which attribute is used to set the initial value of a text input in a form?",
+    "What does the required attribute do in an input element?",
+    "Which input type is used for file uploads?",
+    "How do you group radio buttons in HTML?",
+    "What is the purpose of the <header> element in HTML5?",
+    "Which HTML tag is used to define a hyperlink?",
+    "What does the <article> element represent in HTML5?",
+    "Which tag is used for grouping and applying styles to inline elements?",
+    "What is the purpose of the <footer> element in HTML?",
+    "Which HTML tag is used to create an unordered list?",
+    "What is the purpose of the <nav> element in HTML5?",
+    "Which attribute is used to define the source URL of an image in HTML?",
+    "What does the <aside> element represent in HTML5?",
+    "Which HTML tag is used to define a division or a section in a webpage?"
+};
+
+String[][] options = {
+    {"<form>", "<input>", "<submit>", "<field>"},
+    {"method", "action", "type", "link"},
+    {"text", "password", "textarea", "inputline"},
+    {"<select>", "<list>", "<dropdown>", "<options>"},
+    {"check", "box", "checkbox", "selectbox"},
+    {"Adds a label to an input element", "Defines a section of navigation links", "Specifies the main content of a webpage", "Represents a list item"},
+    {"initial", "value", "default", "start"},
+    {"Specifies a default value", "Marks the input as mandatory", "Defines the input type", "Creates a reset button"},
+    {"file", "upload", "text", "image"},
+    {"<group>", "<radio>", "<inputgroup>", "<input type=\"radio\" name=\"group\">"},
+    {"Defines a footer for a section or page", "Represents introductory content at the beginning of a section or page", "Specifies a navigation menu for a section or page", "Indicates the copyright information of a section or page"},
+    {"<link>", "<href>", "<a>", "<hyper>"},
+    {"A standalone piece of content that can be distributed and reused independently", "A section of navigation links", "The main content of a webpage", "a block of code"},
+    {"<div>", "<span>", "<section>", "<group>"},
+    {"Represents a navigation menu", "Defines the footer of a section or page", "Specifies the main content of a webpage", "Indicates the header of a webpage"},
+    {"<ol>", "<list>", "<ul>", "<dl>"},
+    {"Defines the main content of a webpage", "Specifies a navigation menu for a section or page", "Represents a block of code", "Indicates the footer of a webpage"},
+    {"src", "link", "href", "url"},
+    {"A block of code", "Tangentially related content, like a sidebar", "The main content of a webpage", "A hyperlink"},
+    {"<div>", "<section>", "<block>", "<area>"}
+};
+
+Long[] answer = {0L, 0L, 0L, 0L, 2L, 0L, 1L, 1L, 0L, 3L, 1L, 2L, 0L, 1L, 1L, 2L, 1L, 0L, 1L, 0L};
+```
 ### Semantics and Structure
+```
+String[] questions = {
+    "Which HTML5 element is used for the main content of the document?",
+    "What is the purpose of the <nav> element in HTML5?",
+    "Which HTML tag is used to define a section in a document?",
+    "What does the <article> element represent in HTML5?",
+    "Which element is used for metadata in HTML?",
+    "What is the role of the <header> element in HTML5?",
+    "What is the purpose of the <aside> element in HTML5?",
+    "Which HTML tag is used to define a hyperlink?",
+    "What does the <time> element represent in HTML5?",
+    "Which HTML element is used to define a footer for a section or page?",
+    "What is the purpose of the <mark> element in HTML5?",
+    "Which HTML5 attribute is used to provide an alternative text for an image?",
+    "What is the significance of the <section> element in HTML5?",
+    "Which tag is used to define a thematic change in the content of a document?",
+    "What is the purpose of the <figcaption> element in HTML5?",
+    "Which HTML element is used to define a list item within an ordered or unordered list?",
+    "What is the role of the <figure> element in HTML5?",
+    "Which attribute is used to provide additional information about an element in HTML?",
+    "What does the <abbr> element represent in HTML5?",
+    "Which HTML tag is used to define the main heading of a document or section?"
+};
+
+String[][] options = {
+    {"<main>", "<body>", "<content>", "<section>"},
+    {"Defines a section of navigation links", "Represents introductory content at the beginning of a section or page", "Specifies a navigation menu for a section or page", "Indicates the header of a webpage"},
+    {"<div>", "<section>", "<area>", "<group>"},
+    {"A standalone piece of content that can be distributed and reused independently", "A section of navigation links", "The main content of a webpage", "A block of code"},
+    {"<meta>", "<head>", "<metadata>", "<data>"},
+    {"Represents introductory content at the beginning of a section or page", "Indicates the header of a webpage", "Specifies a navigation menu for a section or page", "Defines a section of navigation links"},
+    {"Represents tangentially related content, like a sidebar", "Defines additional information that is related to the main content", "Specifies a navigation menu for a section or page", "A standalone piece of content that can be distributed and reused independently"},
+    {"<a>", "<link>", "<href>", "<hyperlink>"},
+    {"Represents a specific period in time", "Indicates a hyperlink", "Defines a thematic change in the content", "Specifies additional details about an element"},
+    {"<footer>", "<caption>", "<summary>", "<bottom>"},
+    {"Highlights text for reference purposes", "Defines a thematic change in the content", "Specifies additional details about an element", "Indicates a specific section of content"},
+    {"alt", "caption", "src", "title"},
+    {"It defines a thematic change in the content", "It specifies a section of content", "It represents a generic container with no specific semantic meaning", "It provides a way to group elements for styling purposes"},
+    {"<div>", "<section>", "<hr>", "<p>"},
+    {"Defines a caption or legend for a <figure> element", "Specifies additional details about an element", "Represents introductory content at the beginning of a section or page", "Indicates the header of a webpage"},
+    {"<li>", "<ul>", "<ol>", "<dl>"},
+    {"Represents any content that is referenced from the main content", "Defines a thematic change in the content", "Specifies a navigation menu for a section or page", "Indicates a specific section of content"},
+    {"title", "info", "description", "metadata"},
+    {"Represents an abbreviation or acronym", "Defines additional details about an element", "Indicates a hyperlink", "Specifies a navigation menu for a section or page"},
+    {"<h1>", "<heading>", "<head>", "<header>"}
+};
+
+Long[] answer = {0L, 0L, 1L, 0L, 0L, 1L, 0L, 0L, 2L, 0L, 1L, 0L, 2L, 0L, 1L, 0L, 0L, 0L, 0L, 0L};
+```
 ### Media Elements
 ### Responsive Design
 ### HTML5 Features
@@ -429,6 +578,55 @@ String[][] options = {
 Long[] answer ={0 , 0, 0, 1, 1, 0, 0, 1, 0, 0, 3, 0, 1, 0, 3, 1, 0, 1, 0, 0 };
 ```
 ### Variables and Data Types
+```
+String[] questions = {
+    "Which HTML5 element is used for the main content of the document?",
+    "What is the purpose of the <nav> element in HTML5?",
+    "Which HTML tag is used to define a section in a document?",
+    "What does the <article> element represent in HTML5?",
+    "Which element is used for metadata in HTML?",
+    "What is the role of the <header> element in HTML5?",
+    "What is the purpose of the <aside> element in HTML5?",
+    "Which HTML tag is used to define a hyperlink?",
+    "What does the <time> element represent in HTML5?",
+    "Which HTML element is used to define a footer for a section or page?",
+    "What is the purpose of the <mark> element in HTML5?",
+    "Which HTML5 attribute is used to provide an alternative text for an image?",
+    "What is the significance of the <section> element in HTML5?",
+    "Which tag is used to define a thematic change in the content of a document?",
+    "What is the purpose of the <figcaption> element in HTML5?",
+    "Which HTML element is used to define a list item within an ordered or unordered list?",
+    "What is the role of the <figure> element in HTML5?",
+    "Which attribute is used to provide additional information about an element in HTML?",
+    "What does the <abbr> element represent in HTML5?",
+    "Which HTML tag is used to define the main heading of a document or section?"
+};
+
+String[][] options = {
+    {"<main>", "<body>", "<content>", "<section>"},
+    {"Defines a section of navigation links", "Represents introductory content at the beginning of a section or page", "Specifies a navigation menu for a section or page", "Indicates the header of a webpage"},
+    {"<div>", "<section>", "<area>", "<group>"},
+    {"A standalone piece of content that can be distributed and reused independently", "A section of navigation links", "The main content of a webpage", "A block of code"},
+    {"<meta>", "<head>", "<metadata>", "<data>"},
+    {"Represents introductory content at the beginning of a section or page", "Indicates the header of a webpage", "Specifies a navigation menu for a section or page", "Defines a section of navigation links"},
+    {"Represents tangentially related content, like a sidebar", "Defines additional information that is related to the main content", "Specifies a navigation menu for a section or page", "A standalone piece of content that can be distributed and reused independently"},
+    {"<a>", "<link>", "<href>", "<hyperlink>"},
+    {"Represents a specific period in time", "Indicates a hyperlink", "Defines a thematic change in the content", "Specifies additional details about an element"},
+    {"<footer>", "<caption>", "<summary>", "<bottom>"},
+    {"Highlights text for reference purposes", "Defines a thematic change in the content", "Specifies additional details about an element", "Indicates a specific section of content"},
+    {"alt", "caption", "src", "title"},
+    {"It defines a thematic change in the content", "It specifies a section of content", "It represents a generic container with no specific semantic meaning", "It provides a way to group elements for styling purposes"},
+    {"<div>", "<section>", "<hr>", "<p>"},
+    {"Defines a caption or legend for a <figure> element", "Specifies additional details about an element", "Represents introductory content at the beginning of a section or page", "Indicates the header of a webpage"},
+    {"<li>", "<ul>", "<ol>", "<dl>"},
+    {"Represents any content that is referenced from the main content", "Defines a thematic change in the content", "Specifies a navigation menu for a section or page", "Indicates a specific section of content"},
+    {"title", "info", "description", "metadata"},
+    {"Represents an abbreviation or acronym", "Defines additional details about an element", "Indicates a hyperlink", "Specifies a navigation menu for a section or page"},
+    {"<h1>", "<heading>", "<head>", "<header>"}
+};
+
+Long[] answer = {0L, 0L, 1L, 0L, 0L, 1L, 0L, 0L, 2L, 0L, 1L, 0L, 2L, 0L, 1L, 0L, 0L, 0L, 0L, 0L};
+```
 ### Control Flow
 ### Functions and Packages
 ### Concurrency in Go
@@ -490,6 +688,57 @@ String[][] options = {
 Long [] answer = {2, 1, 0, 1, 3, 1, 2, 2, 3, 0, 0, 0, 0, 0, 0, 2, 0, 0, 2, 1};
 ```
 ### Box Model and Layout
+```
+String[] questions = 
+{
+"Which property is not used for positioning columns next to each other?",
+"Which part of box model clears an area around the content ?",
+"Which part of box model is transparent?",
+"Which is not a box-level element?",
+"The content of the box , where text and images appear.",
+"What will take the element out of normal flow?",
+"Which visibility property value is described by the element is not visible, but the layout of surrounding element is not affected?",
+"Which property can't be the value of float property?",
+"Which property defines the style for the left border of an element?",
+"Which value is not taken by the border-style property?",
+"Which type of margin collapses? ",
+"Which overrides container's align-items property?",
+"Which property is nearest to the element, as per the box model",
+"Which specifies initial length of flex item?",
+"Which property specifies the stack order of elements?",
+"Which box sizing property value is described by width and height include content ,padding and border ?",
+"Which property controls the horizontal overflow of a block or inline block?",
+"Which was not previous layout mode?",
+"What can't be the value of a clear property?",
+"What does not affect the element itself"
+};
+
+String[][] options =
+{
+{"float", "width", "margin", "border"},
+{"padding", "border", "margin", "none of them"},
+{"padding", "margin", "border", "all of the above"},
+{"<p>", "<ul>", "<li>", "<b>"},
+{"true", "false", "can be true or false", "can't say"},
+{"fixed positioning", "floating elements", "relative positioning", "absolute positioning"},
+{"visible", "hidden", "collapse", "none"},
+{"left", "right", "center", "inherit"},
+{"border-style", "border-left-style", "border-left-width", "border-right"},
+{"out", "groove", "ridge", "inset"},
+{"only Top or Bottom", "only Right or Left", "Top and Bottom", "Left and Right"},
+{"order", "align-self", "align-items", "flex"},
+{"padding", "margin", "border", "alignment"},
+{"flex-flow", "flex-grow", "flex-shrink", "flex-basis"},
+{"z-index", "overlap", "override", "none"},
+{"content-box", "border-box", "both", "none"},
+{"overflow-y", "overflow-k", "overflow-x", "overflow"},
+{"block","flexbox layout", "inline", "positioned"},
+{"left", "inherit", "right", "center"},
+{"perspective()", "scale()", "matrix()", "rotate"}
+};
+
+Long[] answer = {3L, 0L, 0L, 3L, 0L, 1L, 1L, 2L, 1L, 0L, 2L, 1L, 0L, 3L, 0L, 2L, 2L, 1L, 3L, 0L};
+```
 ### Flexbox and Grid
 ### Responsive Design with Media Queries
 ### Transitions and Animations

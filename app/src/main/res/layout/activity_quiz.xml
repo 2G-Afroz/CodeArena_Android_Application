@@ -7,14 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".QuizActivity"
     >
-    <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/lpb_progress_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@id/topAppBarLayout"
-        android:indeterminate="true"
-        app:indicatorColor="@color/primary_dark"
-        />
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/topAppBarLayout"
@@ -45,11 +37,20 @@
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/lpb_progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/topAppBarLayout"
+        android:indeterminate="true"
+        app:indicatorColor="@color/primary_dark"
+        />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_info_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/topAppBarLayout"
+        app:layout_constraintTop_toBottomOf="@id/lpb_progress_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="10dp"
@@ -144,7 +145,6 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:fontFamily="@font/poppins_regular"
-            android:text="@string/question"
             android:textAlignment="center"
             android:textSize="16sp" />
         </LinearLayout>
@@ -168,7 +168,6 @@
             android:id="@+id/tv_quiz_option_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/option1"
             android:fontFamily="@font/poppins_semibold"
             android:padding="10dp"
             android:textSize="14sp" />
@@ -191,7 +190,6 @@
             android:id="@+id/tv_quiz_option_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/option2"
             android:fontFamily="@font/poppins_semibold"
             android:padding="10dp"
             android:textSize="14sp" />
@@ -208,13 +206,12 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="40dp"
         app:cardCornerRadius="10dp"
-        app:cardElevation="2dp">
+        app:cardElevation="1dp">
 
         <TextView
             android:id="@+id/tv_quiz_option_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/option3"
             android:fontFamily="@font/poppins_semibold"
             android:padding="10dp"
             android:textSize="14sp" />
@@ -237,7 +234,6 @@
             android:id="@+id/tv_quiz_option_4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/option4"
             android:fontFamily="@font/poppins_semibold"
             android:padding="10dp"
             android:textSize="14sp" />
