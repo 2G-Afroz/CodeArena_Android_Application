@@ -6,20 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.text.style.QuoteSpan;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
 import com.gg.codearena.databinding.ActivityQuizBinding;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
-
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -38,7 +35,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     MyFirestoreHelper myFirestoreHelper;
     ArrayList<Question> arrayQuestions;
     int index;
-    Long[] userAnsIndex;
+    long[] userAnsIndex;
     // For updating time
     Handler handler;
     private static int elapsedTime;
@@ -100,13 +97,14 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 arrayQuestions.addAll(getNRandomQuestions(questions, 20));
                 if (arrayQuestions.size() > 0)
                     setQuestion(arrayQuestions.get(0));
-                userAnsIndex = new Long[arrayQuestions.size()];
+                // initializing userAnsIndex size.
+                userAnsIndex = new long[arrayQuestions.size()];
+                Arrays.fill(userAnsIndex, -1); // Initialized with -1.
 
                 // Setting question number
                 setQnNum(1, userAnsIndex.length);
 
             }
-
             @Override
             public void onFailure(Exception e) {
                 Toast.makeText(QuizActivity.this, "Failed to load Questions.", Toast.LENGTH_SHORT).show();
@@ -120,21 +118,20 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 setQuestion(arrayQuestions.get(index));
                 // Setting Selected option color
                 clearOptionColor();
-                if (userAnsIndex[index] != null) {
-                    setOptionColor(userAnsIndex[index].intValue());
+                if (userAnsIndex[index] != -1) {
+                    setOptionColor((int)userAnsIndex[index]);
                 }
                 setQnNum(index + 1, userAnsIndex.length);
             }
         });
-
         binding.btnNext.setOnClickListener(v -> {
             if (index < arrayQuestions.size() - 1) {
                 index++;
                 setQuestion(arrayQuestions.get(index));
                 // Setting Selected option color
                 clearOptionColor();
-                if (userAnsIndex[index] != null) {
-                    setOptionColor(userAnsIndex[index].intValue());
+                if (userAnsIndex[index] != -1) {
+                    setOptionColor((int)userAnsIndex[index]);
                 }
                 setQnNum(index + 1, userAnsIndex.length);
             }
@@ -152,6 +149,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                             intent.putExtra("notAns", getResult().get("not_ans"));
                             intent.putExtra("total", userAnsIndex.length);
                             intent.putExtra("lang", lang);
+                            intent.putExtra("questions", arrayQuestions); // Passing question for review.
+                            intent.putExtra("user_ans", userAnsIndex); // Passing user answer to match in review activity.
                             startActivity(intent);
                             finish();
                         })
@@ -246,7 +245,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     void setQnNum(int index, int totalQn) {
-        binding.tvQuizQNum.setText(index + "/" + totalQn);
+        String str_qnNum = index + "/"+ totalQn;
+        binding.tvQuizQNum.setText(str_qnNum);
     }
 
     /**
@@ -275,7 +275,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 if (Objects.equals(userAnsIndex[i], arrayQuestions.get(i).getAnswer_index())) {
                     score++;
                 }
-                if (Objects.equals(userAnsIndex[i], null)) {
+                if (Objects.equals((int)userAnsIndex[i], -1)) {
                     not_ans++;
                 }
             }

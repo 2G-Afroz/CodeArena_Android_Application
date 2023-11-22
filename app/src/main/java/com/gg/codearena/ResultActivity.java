@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
 
-    Button btn_home, btn_replay;
+    Button btn_home, btn_replay, btn_review;
     TextView tv_score, tv_completion, tv_total_qn, tv_correct, tv_wrong, tv_not_ans;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class ResultActivity extends AppCompatActivity {
         tv_correct = findViewById(R.id.tv_correct);
         tv_wrong = findViewById(R.id.tv_wrong);
         tv_not_ans = findViewById(R.id.tv_not_answered);
+        btn_review = findViewById(R.id.btn_review);
 
 
         int score = getIntent().getIntExtra("score", 0); // Correct
@@ -117,10 +118,18 @@ public class ResultActivity extends AppCompatActivity {
         tv_not_ans.setText(span_notAns);
 
         // Button click event
+        btn_review.setOnClickListener(v -> {
+            Intent intent = new Intent(this, ReviewActivity.class);
+            intent.putExtra("questions", getIntent().getParcelableArrayListExtra("questions"));
+            intent.putExtra("user_ans", getIntent().getLongArrayExtra("user_ans"));
+            startActivity(intent);
+        });
+
         btn_home.setOnClickListener(v -> {
             startActivity(new Intent(this, MainActivity.class));
             finish();
         });
+
         btn_replay.setOnClickListener(v -> {
             Intent intent = new Intent(this, QuizActivity.class);
             intent.putExtra("lang", getIntent().getStringExtra("lang"));
