@@ -18,8 +18,8 @@
 2. [JavaScript](#javascript)
     - [JavaScript Basics](#javascript-basics) ✅✅
     - [DOM Manipulation](#dom-manipulation) ✅✅
-    - [Functions and Closures](#functions-and-closures)
-    - [Asynchronous JavaScript](#asynchronous-javascript)
+    - [Functions and Closures](#functions-and-closures) ✅
+    - [Asynchronous JavaScript](#asynchronous-javascript) ✅
     - [Events and Event Handling](#events-and-event-handling)
     - [Objects and Prototypes](#objects-and-prototypes)
     - [JSON in JavaScript](#json-in-javascript)
@@ -31,8 +31,8 @@
     - [HTML Basics and Structure](#html-basics-and-structure) ✅✅
     - [HTML Forms](#html-forms) ✅✅
     - [Semantics and Structure](#semantics-and-structure) ✅✅
-    - [Media Elements](#media-elements)
-    - [Responsive Design](#responsive-design)
+    - [Media Elements](#media-elements) ✅
+    - [Responsive Design](#responsive-design) ✅
     - [HTML5 Features](#html5-features)
     - [HTML Accessibility](#html-accessibility)
     - [SVG in HTML](#svg-in-html)
@@ -53,8 +53,8 @@
 5. [CSS](#css)
     - [CSS Basics and Selectors](#css-basics-and-selectors) ✅✅
     - [Box Model and Layout](#box-model-and-layout) ✅✅
-    - [Flexbox and Grid](#flexbox-and-grid)
-    - [Responsive Design with Media Queries](#responsive-design-with-media-queries)
+    - [Flexbox and Grid](#flexbox-and-grid) ✅
+    - [Responsive Design with Media Queries](#responsive-design-with-media-queries) ✅
     - [Transitions and Animations](#transitions-and-animations)
     - [CSS Preprocessors](#css-preprocessors)
     - [CSS Frameworks](#css-frameworks)
@@ -359,7 +359,105 @@ String[][] options = {
 Long[] answer = {0L, 2L, 0L, 0L, 2L, 2L, 3L, 2L, 0L, 0L, 0L, 0L, 1L, 2L, 0L, 0L, 1L, 1L, 0L, 0L};
 ```
 ### Functions and Closures
+```
+String[] questions = {
+    "What is a JavaScript function?",
+    "How do you declare a function in JavaScript?",
+    "What is the purpose of the return statement in a function?",
+    "What is a parameter in a function?",
+    "How do you call a function named myFunction in JavaScript?",
+    "What is a JavaScript closure?",
+    "What is the scope of a variable declared inside a function?",
+    "How can you create an anonymous function in JavaScript?",
+    "What is the purpose of the arguments object in a JavaScript function?",
+    "How do you check the number of arguments passed to a function?",
+    "What is the difference between function declaration and function expression?",
+    "What is a callback function in JavaScript?",
+    "How can you immediately invoke a function in JavaScript?",
+    "What is the purpose of the bind method in JavaScript functions?",
+    "What is the closure in the context of a function?",
+    "How can you pass a variable number of arguments to a JavaScript function?",
+    "What is the purpose of the apply method in JavaScript functions?",
+    "What does the this keyword refer to in a JavaScript function?",
+    "How do you create a new instance of a function in JavaScript?",
+    "What is the purpose of the bind method in JavaScript functions?"
+};
+
+String[][] options = {
+    {"A data type","A variable","A reusable block of code","An object"},
+    {"function = myFunction() {}","function myFunction() {}","var myFunction = function() {}","declare myFunction() {}"},
+    {"To stop the execution of the function","To return a value from the function","To print a message to the console","To declare a variable"},
+    {"A variable defined inside a function","A value passed to a function when it is called","A function that calls another function","A type of loop in JavaScript"},
+    {"run myFunction();","call myFunction;","myFunction();","execute myFunction {}"},
+    {"A function that has no parameters","A function that returns another function","A built-in JavaScript object","A variable declared inside a function"},
+    {"Global scope","Local scope","Both global and local scope","Function scope"},
+    {"function anonymous(){}","var myFunction =()=>{}","var anonymous=function(){}", "anonymous=()=>{}"},
+    {"It represents the arguments passed to the function as an array-like object.","It contains the local variables of the function.","It is used to declare parameters in the function signature.","It is a reserved keyword that cannot be used in a function."},
+    {"arguments.count","B)arguments.length", "C) arguments.size", "D) arguments.number"},
+    {"There is no difference.","Function declaration is hoisted, while function expression is not.","Function expression is hoisted, while function declaration is not.","Function declaration and function expression are not valid in JavaScript."},
+    {"A function that calls another function","A function passed as an argument to another function","A function that contains a callback keyword","A function with a return statement"},
+    {"invokeFunction();","run function {};","(function(){})();","call function;"},
+    {"To bind a function to a specific variable","To bind a function to a specific context, creating a new function","To bind two functions together","To bind a function to an HTML element"},
+    {"The act of closing a function","The inner function having access to the outer function's variables","The process of declaring variables inside a function","The act of closing a browser tab"},
+    {"Using the ...args syntax","Using the arguments keyword","By declaring multiple parameters","It's not possible in JavaScript"},
+    {"To apply a function to a specific element","To apply a function with a given this value and arguments provided as an array","To apply a function with a specific context","To apply a function to all elements in an array"},
+    {"The function itself","The window object","The object the function is a method of"," The global scope"},
+    {"newFunction();","create function {};","new function();","new myFunction();"},
+    {"To bind a function to a specific variable","To bind a function to a specific context, creating a new function","To bind two functions together","To bind a function to an HTML element"}
+};
+
+Long[] answer = {2L, 1L, 1L, 1L, 2L, 1L, 1L, 1L, 0L, 1L, 1L, 1L, 2L, 1L, 1L, 0L, 1L, 2L, 3L, 1L};
+```
 ### Asynchronous JavaScript
+```
+String[] questions = {
+    "What is asynchronous programming in JavaScript?",
+    "Which keyword is used to define an asynchronous function in JavaScript?",
+    "What does the await keyword do in an asynchronous function?",
+    "How do you handle errors in asynchronous JavaScript?",
+    "What is the purpose of the Promise object in JavaScript?",
+    "How do you create a new Promise in JavaScript?",
+    "What are the states of a Promise in JavaScript?",
+    "How do you handle the fulfillment of a Promise?",
+    "What is the purpose of the catch method in a Promise?",
+    "What is the event loop in JavaScript?",
+    "How do you execute a function after a specific delay in JavaScript?",
+    "What is the purpose of the setInterval function in JavaScript?",
+    "How do you cancel a scheduled timeout in JavaScript?",
+    "What is the purpose of the async/await syntax in JavaScript?",
+    "How do you handle multiple promises concurrently in JavaScript?",
+    "What is the purpose of the Promise.race method in JavaScript?",
+    "What is the purpose of the finally block in a Promise?",
+    "What is the role of the resolve function in a Promise?",
+    "How do you convert a callback-based function into a promise-based function?",
+    "What is the purpose of the async keyword in JavaScript?"
+};
+
+String[][] options = {
+    {"A way to execute code in a single thread sequentially", "A way to handle multiple tasks simultaneously without blocking the main thread", "A type of loop in JavaScript", "A feature not available in JavaScript"},
+    {"async", "function", "await", "asyncFunction"},
+    {"Pauses the execution of the function until the promise is resolved or rejected", "Skips the next line of code", "Executes the function synchronously", "Ends the asynchronous function"},
+    {"Using try...catch", "Using if...else statements", "Using switch statements", "Errors cannot be handled in asynchronous JavaScript"},
+    {"To represent a value that might be available now, in the future, or never", "To define a constant value", "To create a loop in asynchronous functions", "To handle synchronous tasks"},
+    {"new Promise.create()", "Promise.new()", "new Promise()", "create Promise()"},
+    {"Pending, Resolved, Rejected", "Starting, Running, Stopped", "Waiting, Executing, Completed", "Open, Closed, Error"},
+    {"Using the finally block", "Using the resolve function", "Using the then method", "Using the catch block"},
+    {"To catch errors thrown in the then method", "To catch errors thrown in the finally block", "To catch errors thrown in the resolve function", "To catch errors thrown in the async function"},
+    {"A loop that runs only once", "A loop that handles asynchronous tasks and callbacks", "A loop that handles synchronous tasks", "A loop that runs in a separate thread"},
+    {"executeFunction(delay, myFunction)", "setTimeout(myFunction, delay)", "wait(delay).then(myFunction)", "delay(myFunction)"},
+    {"To execute a function repeatedly at a specified interval", "To set a timeout for a function", "To create a new asynchronous function", "To handle errors in asynchronous functions"},
+    {"clearTimeout(timeoutId)", "cancelTimeout(timeoutId)", "removeTimeout(timeoutId)", "stopTimeout(timeoutId)"},
+    {"To handle synchronous tasks", "To create a loop", "To simplify asynchronous code and make it look more like synchronous code", "To handle events in the DOM"},
+    {"Using nested 'then' blocks", "Using the Promise.all method", "Using the async/await syntax", "Using the Promise.race method"},
+    {"To race two asynchronous functions", "To race multiple promises and fulfill or reject as soon as one of them resolves or rejects", "To set a timeout for a promise", "To handle errors in promises"},
+    {"To handle fulfilled promises", "To handle rejected promises", "To execute code regardless of whether the promise is resolved or rejected", "There is no finally block in a Promise"},
+    {"To reject a promise", "To fulfill a promise", "To catch errors in a promise", "To define the initial state of a promise"},
+    {"wrapInPromise(callbackFunction)", "convertToPromise(callbackFunction)", "Promise.fromCallback(callbackFunction)", "Use the Promise constructor"},
+    {"To define a variable as asynchronous", "To create a new asynchronous function", "To handle errors in asynchronous code", "To execute a function after a specific delay"}
+};
+
+Long[] answer = {1L, 0L, 0L, 0L, 0L, 2L, 0L, 2L, 0L, 1L, 1L, 0L, 0L, 2L, 1L, 1L, 2L, 1L, 3L, 1L};
+```
 ### Events and Event Handling
 ### Objects and Prototypes
 ### JSON in JavaScript
@@ -519,7 +617,105 @@ String[][] options = {
 Long[] answer = {0L, 0L, 1L, 0L, 0L, 1L, 0L, 0L, 2L, 0L, 1L, 0L, 2L, 0L, 1L, 0L, 0L, 0L, 0L, 0L};
 ```
 ### Media Elements
+```
+String[] questions = {
+    "What HTML tag is used to embed audio content?",
+    "Which attribute is used to specify the source file of an audio element?",
+    "In HTML, what tag is used for embedding video content?",
+    "Which attribute is used to define an image as a clickable hyperlink in HTML?",
+    "The controls attribute in the <audio> and <video> tags provides what functionality?",
+    "What is the purpose of the <source> element inside an <audio> or <video> tag?",
+    "Which attribute is used to specify an image file in the <img> tag?",
+    "The autoplay attribute in the <video> tag is used for:",
+    "Which attribute is used to specify a poster image for a video in HTML?",
+    "What does the <track> element inside a <video> tag do?",
+    "Which attribute is used to set the initial volume of an audio or video element?",
+    "What is the purpose of the controls attribute in the <video> tag?",
+    "Which attribute is used to specify a fallback source for the audio or video element?",
+    "How can you make a video play in a loop using HTML?",
+    "What is the purpose of the preload attribute in the <audio> or <video> tag?",
+    "Which attribute is used to specify the width of an embedded video?",
+    "How can you make a video start playing from a specific time using HTML?",
+    "What is the purpose of the <canvas> element in HTML?",
+    "Which attribute is used to specify the aspect ratio of a video in HTML?",
+    "What HTML tag is used to embed a PDF document?"
+};
+
+String[][] options = {
+    {"<audio>", "<sound>", "<music>", "<media>"},
+    {"src", "source", "file", "audio-source"},
+    {"<video>", "<movie>", "<visual>", "<vid>"},
+    {"href", "link", "src", "url"},
+    {"Play and pause controls", "Volume control", "Full-screen mode", "All of the above"},
+    {"It defines alternative text for the media", "It specifies the type of media file", "It sets the size of the media player", "It controls the playback speed"},
+    {"img-src", "image", "src", "picture"},
+    {"Automatically playing the video when the page loads", "Creating a loop for continuous playback", "Pausing the video by default", "None of the above"},
+    {"thumbnail", "poster", "image", "cover"},
+    {"It defines a track for subtitles or captions", "It specifies the playback speed", "It sets the video resolution", "It controls the audio output"},
+    {"sound", "volume", "initial-volume", "volumne"},
+    {"It adjusts the video resolution", "It provides play and pause controls", "It changes the video speed", "It adds a border around the video"},
+    {"fallback", "alt", "fallback-source", "fallback-src"},
+    {"Set loop="true" attribute", "Use the loop attribute without a value", "Add a <loop> element inside the <video> tag", "Set loop="loop" attribute"},
+    {"It preloads the media file for faster playback", "It specifies the file size of the media", "It controls the buffering speed", "It changes the playback speed"},
+    {"width", "size", "video-width", "length"},
+    {"Use the start attribute", "Add a start-time attribute", "Set the autoplay attribute with a time value", "Use JavaScript for time control"},
+    {"It is used for drawing graphics using JavaScript", "It embeds external images in the document", "It displays 3D models", "It is a container for multimedia content"},
+    {"aspect-ratio", "ratio", "video-aspect", "aspect"},
+    {"<pdf>", "<document>", "<embed>", "<iframe>"}
+};
+
+Long[] answer = {0L, 1L, 0L, 2L, 3L, 1L, 2L, 0L, 1L, 0L, 0L, 1L, 2L, 0L, 0L, 1L, 2L, 0L, 3L, 2L};
+```
 ### Responsive Design
+```
+String[] questions = {
+    "What does \"RWD\" stand for in the context of web development?",
+    "Which HTML tag is commonly used to create a responsive navigation menu?",
+    "In CSS, what property is used to make an image or a video responsive within a container?",
+    "Which CSS framework is widely used for building responsive and mobile-first websites?",
+    "What is the purpose of the viewport meta tag in HTML for responsive design?",
+    "Which CSS property is used to create flexible grids in responsive design?",
+    "What is the purpose of media queries in CSS for responsive design?",
+    "Which CSS unit is commonly used for responsive font sizes?",
+    "What is the purpose of the CSS property overflow: hidden in a responsive design?",
+    "Which HTML5 element is used to embed responsive videos?",
+    "What does the term \"breakpoint\" refer to in responsive design?",
+    "How can you hide an element on smaller screens in CSS using media queries?",
+    "Which CSS property is used to set the spacing between columns in a responsive layout?",
+    "What is the purpose of the @media rule in CSS?",
+    "Which HTML5 attribute is used to ensure that a webpage is optimized for mobile devices?",
+    "How can you make an image fluid and responsive within its container in CSS?",
+    "Which CSS property is used to create a sticky navigation bar in a responsive design?",
+    "In responsive design, what does the term \"mobile-first\" mean?",
+    "Which HTML5 element is used for grouping and applying styles to a set of navigation links in responsive design?",
+    "What is the purpose of the CSS property flex-grow in a responsive layout?"
+};
+
+String[][] options = {
+    {"Real Web Design", "Responsive Web Design", "Rapid Web Development", "Relative Width Design"},
+    {"<nav>", "<menu>", "<navbar>", "<navigation>"},
+    {"width", "height", "max-width", "min-height"},
+    {"Bootstrap", "Foundation", "Bulma", "All of the above"},
+    {"Defines the background color of the viewport", "Sets the initial scale of the webpage", "Specifies the font family for the entire page", "None of the above"},
+    {"flex", "grid", "layout", "box-sizing"},
+    {"To include external media files", "To apply styles based on device characteristics", "To add media elements like images and videos", "None of the above"},
+    {"px (pixels)", "em", "rem", "vw (viewport width)"},
+    {"Hides the entire webpage", "Prevents content from overflowing its container", "Adds a hidden scrollbar to the webpage", "None of the above"},
+    {"<video>", "<embed>", "<media>", "<player>"},
+    {"A point in the code where errors occur", "The point at which a webpage's layout changes based on device width", "A specific pixel value for images", "None of the above"},
+    {"display: none;", "visibility: hidden;", "opacity: 0;", "hidden: true;"},
+    {"padding", "margin", "column-gap", "grid-gap"},
+    {"To define media types for a stylesheet", "To apply styles only when certain conditions are met", "To include external media files", "None of the above"},
+    {"mobile-optimized", "viewport", "responsive", "device-width"},
+    {"image-size: fluid;", "max-width: 100%;", "responsive: true;", "fluid-image: auto;"},
+    {"fixed", "sticky", "position: absolute;", "float: top;"},
+    {"Designing specifically for smartphones", "Prioritizing styling for desktop screens", "Starting with the smallest screen size and progressively enhancing for larger screens", "Ignoring mobile devices in the design process"},
+    {"<nav>", "<ul>", "<menu>", "<list>"},
+    {"Defines the growth factor of a flex item", "Sets the flex container's growth rate", "Determines the width of a flexible box", "None of the above"}
+};
+
+Long[] answers = {1L, 0L, 2L, 3L, 1L, 1L, 1L, 3L, 1L, 0L, 1L, 0L, 2L, 1L, 1L, 1L, 1L, 2L, 0L, 0L};
+```
 ### HTML5 Features
 ### HTML Accessibility
 ### SVG in HTML
@@ -740,7 +936,105 @@ String[][] options =
 Long[] answer = {3L, 0L, 0L, 3L, 0L, 1L, 1L, 2L, 1L, 0L, 2L, 1L, 0L, 3L, 0L, 2L, 2L, 1L, 3L, 0L};
 ```
 ### Flexbox and Grid
+```
+String[] questions = {
+    "What is a grid made up of?",
+    "What property should use to customize the rows generated automatically?",
+    "What property decides if rows or columns get generated?",
+    "What does the fr measurement unit do?",
+    "What is the syntax for the repeat() function?",
+    "How can I make a column respect a maximum or a minimum size?",
+    "How can I align the content INSIDE of the grid cells?",
+    "How can I align the grid cells?",
+    "How can I give space between the cells?",
+    "What is the default value of grid-auto-flow property?",
+    "How to correctly place a grid item inside a named area?",
+    "Which is an invalid property?",
+    "Flex-flow is a shorthand for",
+    "The order property applies to both flex items and grid items",
+    "Which of the following is an invalid property?",
+    "What is the default value of the flex-grow property?",
+    "What is the default value of the flex-shrink property?",
+    "What element do you target Flexbox on to?",
+    "What flexbox property changes the order of the flex-items?",
+    "How do you specify how flex items are laid out in the container?"
+};
+
+String[][] options = {
+    {"lines, cells, rows, columns", "lines, cells, columns", "lines, cells, rows", "grid structure"},
+    {"grid-generated-rows", "grid-auto-rows", "grid-automatically-rows", "customize-rows"},
+    {"grid-auto-flow", "grid-flow", "grid-generated-flow", "grid-generation"},
+    {"It takes as much space as possible", "It makes the rigid contract", "It expands the lines of the cell", "Flexible rows"},
+    {"repeat(size,times)", "repeat(times,size)", "repeat(size)(times)", "syntax-repeat"},
+    {"using maxSize() function", "using minmax() function", "using min-max property", "column-size"},
+    {"using place-items", "using place-content", "none", "align-inside"},
+    {"using place-items", "using place-content", "both", "align-cells"},
+    {"margin", "padding", "grid-gap", "cell-spacing"},
+    {"auto", "row", "fill", "column"},
+    {"grid-area: 'foo';", "item-area: foo;", "grid-area: foo;", "item-placement"},
+    {"grid-template", "grid-row", "grid-area", "grid-flow"},
+    {"it's an invalid property", "flex-column & flex-row", "flex-direction & flex-wrap", "flex-shorthand"},
+    {"false", "true", "none", "both"},
+    {"flex-column", "flex-basis", "flex-flow", "flex-direction"},
+    {"0", "1", "both", "none"},
+    {"1", "0", "both", "none"},
+    {"the parent element", "child element", "doesn't matter", "container-element"},
+    {"flex-order", "order", "flex-change", "order-change"},
+    {"justify content", "flex-direction", "align-items", "layout-specification"}
+};
+
+Long[] answers = {0L, 1L, 0L, 0L, 1L, 1L, 0L, 1L, 2L, 1L, 2L, 3L, 2L, 1L, 0L, 0L, 0L, 0L, 1L, 1L};
+```
 ### Responsive Design with Media Queries
+```
+String[] questions = {
+    "Which media features describe the number of entries in the color lookup table of the output device?",
+    "Which of the following Viewport Property sets the initial scaling factor?",
+    "Which Viewport Property determines whether the display can be zoomed in & out?",
+    "Which CSS property allows you to define the rules for different media types and devices?",
+    "Which media query operator is used to target devices with a width between 768px and 1024px?",
+    "Which CSS property allows you to set the font size relative to the root element's font size?",
+    "Which CSS property allows you to create flexible grid layouts for responsive design?",
+    "Which CSS property is used to control the stacking order of elements in responsive design?",
+    "What is the purpose of the flex-direction property in CSS for responsive design?",
+    "Which CSS property is used to make text wrap around an image in a responsive layout?",
+    "Which unit of measurement in CSS is relative to the font size of the parent element and can be used for responsive typography?",
+    "In a media query, what does the 'orientation' property target to distinguish between portrait and landscape orientations of a device?",
+    "Which CSS property allows you to specify the number of columns in a responsive multi-column layout?",
+    "What is the primary goal of responsive web design?",
+    "What is the purpose of media queries in responsive web design?",
+    "Which media query operator is used to target devices with a width less than or equal to 600px?",
+    "What does the 'viewport' refer to in the context of responsive web design?",
+    "What is the primary purpose of using responsive images in web design?",
+    "What is the purpose of the CSS display property in responsive design?",
+    "What does the meta viewport tag's 'initial-scale' property control in responsive web design?"
+};
+
+String[][] options = {
+    {"color", "color-index", "color-value", "color-@media"},
+    {"scale", "initial-scale", "minimum-scale", "user-scale"},
+    {"scale", "set-scale", "adjust-scale", "user-scalable"},
+    {"media-rules", "media-queries", "device-styles", "responsive-layout"},
+    {"and", "not", "between", "or"},
+    {"font-adjust", "font-size-adjust", "font-relative-size", "rem"},
+    {"grid-layout", "flexbox", "media-queries", "responsive-grid"},
+    {"z-index", "position", "display", "order"},
+    {"It controls the stacking order of elements", "It specifies the order in which flex items appear", "It defines the direction of the flexible container's main axis", "It adjusts the font size based on the Viewport's width"},
+    {"float", "text-wrap", "image-wrap", "text-flow"},
+    {"px", "em", "vw", "pt"},
+    {"landscape", "orientation", "portrait", "device-orientation"},
+    {"layout-columns", "column-count", "multi-columns", "responsive-columns"},
+    {"Creating visually appealing websites", "Providing a consistent user experience on different devices", "Maximizing website performance", "Ensuring cross-browser compatibility"},
+    {"To hide certain elements on the webpage", "To load web fonts faster", "To adapt the layout and styling based on the device's characteristics", "To create interactive animations"},
+    {"and", "not", "max-width", "or"},
+    {"The browser's title bar", "The device's physical screen", "The visible area of the webpage in the browser", "The URL of the website"},
+    {"To make images load faster", "To ensure all images are the same size", "To adjust image dimensions based on the device's screen size", "To add decorative elements to the webpage"},
+    {"To control the stacking order of elements", "To define the order of elements within a flex container", "To specify how elements are displayed within the layout", "To adjust the font size based on the viewport's width"},
+    {"The width of the viewport", "The initial font size of the webpage", "The initial scale of the webpage's content", "The background color of the webpage"}
+};
+
+Long[] answers = {1L, 1L, 3L, 1L, 0L, 3L, 1L, 0L, 2L, 0L, 1L, 1L, 1L, 1L, 2L, 2L, 2L, 2L, 2L, 2L};
+```
 ### Transitions and Animations
 ### CSS Preprocessors
 ### CSS Frameworks

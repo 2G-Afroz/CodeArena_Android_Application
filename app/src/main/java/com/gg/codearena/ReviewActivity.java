@@ -3,19 +3,11 @@ package com.gg.codearena;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
-
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import com.gg.codearena.databinding.ActivityReviewBinding;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -100,8 +92,6 @@ public class ReviewActivity extends AppCompatActivity {
         binding.tvQuizOption3.setText(qn.getOptions().get(2));
         binding.tvQuizOption4.setText(qn.getOptions().get(3));
         clearOptionColor();
-        setOptionColor(index, ContextCompat.getColor(this, R.color.selected));  // Setting user color
-        setOptionColor(index, ContextCompat.getColor(this, R.color.right_green));   // Setting correct answer color
     }
 
     /**
