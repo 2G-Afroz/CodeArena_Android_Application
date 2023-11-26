@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -13,14 +15,16 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.LanguageViewHolder> {
+public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.LanguageViewHolder> implements Filterable {
 
-    private static ArrayList<Languages> langData;
+    private static ArrayList<Languages> langData, tempLangData;
+
     @SuppressLint("StaticFieldLeak")
     private static Context context;
     public LanguagesRvAdapter(Context context, ArrayList<Languages> langData) {
         LanguagesRvAdapter.langData = langData;
         LanguagesRvAdapter.context = context;
+        tempLangData = new ArrayList<>(langData);
     }
 
     @NonNull
@@ -40,6 +44,42 @@ public class LanguagesRvAdapter extends RecyclerView.Adapter<LanguagesRvAdapter.
     @Override
     public int getItemCount() {
         return langData.size();
+    }
+
+    // Filtering Languages
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+
+                ArrayList<Languages> filteredLanguages = new ArrayList<>();
+
+                if(constraint == null || constraint.length() == 0){
+                    filteredLanguages.addAll(tempLangData);
+                }
+                else{
+                    String query = constraint.toString().toLowerCase().trim();
+                    for(Languages lang : langData){
+                        if(lang.getLang_title().toLowerCase().startsWith(query)){
+                            filteredLanguages.add(lang);
+                        }
+                    }
+                }
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filteredLanguages;
+
+                return filterResults;
+            }
+
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                langData.clear();
+                langData.addAll((ArrayList)results.values);
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public static class LanguageViewHolder extends RecyclerView.ViewHolder{
