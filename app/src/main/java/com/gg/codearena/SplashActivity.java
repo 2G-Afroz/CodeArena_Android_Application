@@ -1,13 +1,19 @@
 package com.gg.codearena;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -25,11 +31,28 @@ public class SplashActivity extends AppCompatActivity {
         // Upload Questions
         //uploadQuestions();
 
-        Intent intent = new Intent(this, MainActivity.class);
-        new Handler().postDelayed(() -> {
-            startActivity(intent);
-            finish();
-        },2000);
+        String email = getSharedPreferences(Utils.PREF_NAME, Context.MODE_PRIVATE)
+                .getString(Utils.USER_EMAIL, null);
+        String pass = getSharedPreferences(Utils.PREF_NAME, Context.MODE_PRIVATE)
+                .getString(Utils.USER_PASS, null);
+        if(email != null && pass != null){
+            FirebaseAuth auth = FirebaseAuth.getInstance();
+            auth.signInWithEmailAndPassword(email, pass)
+                    .addOnSuccessListener(authResult -> {
+                        startActivity(new Intent(this, MainActivity.class));
+                        finish();
+                    })
+                    .addOnFailureListener(e -> {
+                        startActivity(new Intent(this, LoginActivity.class));
+                        finish();
+                    });
+        } else {
+            new Handler().postDelayed(() -> {
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
+            }, 1000);
+        }
+
     }
 
     void uploadQuestions(){

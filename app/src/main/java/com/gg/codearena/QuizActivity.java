@@ -66,7 +66,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
         binding.cvQuizOption4.setOnClickListener(this);
 
         // Getting and Loading Questions
-        myFirestoreHelper = new MyFirestoreHelper();
+        myFirestoreHelper = new MyFirestoreHelper(this);
         arrayQuestions = new ArrayList<>();
         String lang = getIntent().getStringExtra("lang");
 

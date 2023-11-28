@@ -8,4 +8,10 @@
         app:actionViewClass="androidx.appcompat.widget.SearchView"
         android:title="Search"
         />
+    <item
+        android:id="@+id/menu_logout"
+        app:showAsAction="never"
+        android:title="Log out"
+        />
+
 </menu>

@@ -39,9 +39,12 @@
         android:layout_marginEnd="10dp"
         app:boxStrokeColor="@color/primary"
         app:hintEnabled="false"
-        app:startIconDrawable="@drawable/ic_account">
+        app:startIconDrawable="@drawable/ic_account"
+        app:endIconMode="clear_text"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_name"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/poppins_regular"
@@ -61,9 +64,12 @@
         android:layout_marginEnd="10dp"
         app:boxStrokeColor="@color/primary"
         app:hintEnabled="false"
-        app:startIconDrawable="@drawable/ic_email">
+        app:startIconDrawable="@drawable/ic_email"
+        app:endIconMode="clear_text"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/poppins_regular"
@@ -83,9 +89,12 @@
         android:layout_marginEnd="10dp"
         app:boxStrokeColor="@color/primary"
         app:hintEnabled="false"
-        app:startIconDrawable="@drawable/ic_lock">
+        app:startIconDrawable="@drawable/ic_lock"
+        app:endIconMode="password_toggle"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_pass"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/poppins_regular"
@@ -105,9 +114,12 @@
         android:layout_marginEnd="10dp"
         app:boxStrokeColor="@color/primary"
         app:hintEnabled="false"
-        app:startIconDrawable="@drawable/ic_lock">
+        app:startIconDrawable="@drawable/ic_lock"
+        app:endIconMode="password_toggle"
+        >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tiet_conf_pass"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fontFamily="@font/poppins_regular"
@@ -116,6 +128,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/btn_sign_up"
         style="@style/ButtonCornerRadius"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -158,17 +171,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
-        android:backgroundTint="@color/primary"
+        android:elevation="4dp"
+        app:cardBackgroundColor="@color/transparent"
         >
-
-        <ImageView
+        <ImageButton
+            android:id="@+id/imgbtn_google"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:src="@drawable/google"
-            android:background="@color/transparent"
+            android:padding="12dp"
+            android:background="@drawable/img_btn_round_corner"
+            android:contentDescription="login with google"
             />
-
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
@@ -191,5 +205,6 @@
             android:fontFamily="@font/poppins_extrabold"
             />
     </LinearLayout>
+
 
 </LinearLayout>

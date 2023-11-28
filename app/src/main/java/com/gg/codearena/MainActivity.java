@@ -3,11 +3,16 @@ package com.gg.codearena;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +20,13 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,18 +34,33 @@ public class MainActivity extends AppCompatActivity {
     // For data
     private ArrayList<Languages> langData;
     private LanguagesRvAdapter languagesRvAdapter;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Setting toolbar
-        setSupportActionBar(findViewById(R.id.toolbar));
-
-        // Initializing views
-        // For views
+        // Initializing views/variables
+        toolbar = findViewById(R.id.toolbar);
         RecyclerView rv_languages = findViewById(R.id.rv_languages);
+        MyFirestoreHelper myFirestoreHelper = new MyFirestoreHelper(this);
+
+        // Toolbar
+        myFirestoreHelper.getUserName(FirebaseAuth.getInstance().getUid(), new MyFirestoreHelper.UserNameFetchListener() {
+            @Override
+            public void onNameFetch(String name) {
+                toolbar.setTitle(name);
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                toolbar.setTitle("User Name");
+            }
+        });
+
+        // Setting toolbar
+        setSupportActionBar(toolbar);
 
         // Initializing data to langData.
         langData = new ArrayList<>();
@@ -73,11 +99,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if(item.getItemId() == R.id.menu_logout){
+            // Singing out
+            FirebaseAuth.getInstance().signOut();
+            // Resetting ShredPreferences data
+            SharedPreferences.Editor prefEditor = getSharedPreferences(Utils.PREF_NAME, Context.MODE_PRIVATE).edit();
+            prefEditor.putString(Utils.USER_EMAIL, null);
+            prefEditor.putString(Utils.USER_PASS, null);
+            prefEditor.apply();
+            // Sending to LoginActivity
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
     void initializeData(){
-
         TypedArray img_res = getResources().obtainTypedArray(R.array.lang_logos);
         String[] lang_names = getResources().getStringArray(R.array.lang_name);
         String[] lang_topic_list = getResources().getStringArray(R.array.str_arr_languages_contents);
